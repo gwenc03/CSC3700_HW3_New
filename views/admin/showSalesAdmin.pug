@@ -9,14 +9,14 @@ include ../layouts/layoutBS
         h2.mt-4 Sorry no current products
     else
         h2.mt-4 #{title}
-        table.table.table-striped
+        table.table.table-striped.table-info
             thead
                 tr
-                    th(scope='col') Date
-                    th(scope='col') CustomerName
-                    th(scope='col') Product
-                    th(scope='col') Quantity
-                    th(scope='col') Total Sales
+                    th(scope='col' style='background-color:dodgerblue') Date
+                    th(scope='col' style='background-color:dodgerblue') CustomerName
+                    th(scope='col' style='background-color:dodgerblue') Product
+                    th(scope='col' style='background-color:dodgerblue') Quantity
+                    th(scope='col' style='background-color:dodgerblue') Total Sales
 
             tbody
                 //
