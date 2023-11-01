@@ -27,7 +27,7 @@ exports.postAddProduct = ( req, res, next) => {
     res.redirect('/showAdmin')
 }
 exports.getCustomers = (req, res, next) => {
-    Customer.fetchAll()
+    Customer.runCustomerQuery()
         .then((rows, fieldData ) => {
             console.log("Rows="); console.log(rows);
             res.render("admin/showCustomersAdmin", {
