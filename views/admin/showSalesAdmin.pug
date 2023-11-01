@@ -5,25 +5,25 @@ include ../layouts/layoutBS
 
 .container
     p.mt-4 Admin Side
-    if items.length == 0
+    if sales.length == 0
         h2.mt-4 Sorry no current products
     else
         h2.mt-4 #{title}
         table.table.table-striped
             thead
                 tr
-                    th(scope='col') Item Name
-                    th(scope='col') Item Price
+                    th(scope='col') SaleID
+                    th(scope='col') SalesDate
             tbody
-                each i in items
+                each s in sales
                     tr
-                        td= i.ItemName
-                        td= i.TotalSales
+                        td= s.SalesID
+                        td= s.SalesDate
                         //td
-                        //    form( method='get' action='editItem/' + i.ItemID )
+                        //    form( method='get' action='editItem/' + c.CustomerID )
                         //        button(type='submit' class='btn btn-primary') Edit
                         //td
-                        //    form( method='get' action='deleteItem/' + i.ItemID )
+                        //    form( method='get' action='deleteItem/' + c.CustomerID )
                         //        button(type='submit' class='btn btn-primary') Delete
     form( method='get' action='/add-product')
         button(type='submit' class='btn btn-primary') Add Record

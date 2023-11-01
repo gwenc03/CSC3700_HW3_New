@@ -2,6 +2,7 @@ const adminData = require("../routes/admin");
 // const Product = require("../models/oproduct");
 const Customer = require("../models/customer");
 const Item = require("../models/item")
+const Sale = require("../models/sale")
 // let products = [];
 exports.getAddProduct = ( req, res, next) => {
     res.render( 'admin/addProduct',
@@ -37,13 +38,25 @@ exports.getCustomers = (req, res, next) => {
         })
 }
 exports.getItems = (req, res, next) => {
-    Item.fetchAll()
+    Item.runItemQuery()
         .then((rows, fieldData ) => {
             console.log("Rows="); console.log(rows);
             res.render("admin/showItemAdmin", {
                 title: "Item Info",
                 from: "showItems",
                 items: rows[0]
+            })
+        })
+}
+
+exports.getSales = (req, res, next) => {
+    Sale.fetchAll()
+        .then((rows, fieldData ) => {
+            console.log("Rows="); console.log(rows);
+            res.render("admin/showSalesAdmin", {
+                title: "Sales Info",
+                from: "showSales",
+                sales: rows[0]
             })
         })
 }

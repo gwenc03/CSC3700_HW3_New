@@ -32,4 +32,11 @@ module.exports = class Item {
         return db.execute("select * from Item where iid = ?",
             [iid]);
     }
+    static runItemQuery(){
+        return db.execute("select i.ItemName, SUM(i.ItemPrice * s.Quantity) AS TotalSales" +
+            " FROM Item i" +
+            " JOIN Sales s ON s.ItemID = i.ItemID" +
+            " GROUP BY i.ItemID" +
+            " order by TotalSales DESC")
+    }
 }
