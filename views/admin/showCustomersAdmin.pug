@@ -15,6 +15,8 @@ include ../layouts/layoutBS
                     th(scope='col' style='background-color:dodgerblue') Customer Name
                     th(scope='col' style='background-color:dodgerblue') Customer Email
                     th(scope='col' style='background-color:dodgerblue') Total Sales
+                    th(scope='col' style='background-color:dodgerblue')
+
             tbody
                 each c in customers
                     tr
@@ -23,9 +25,7 @@ include ../layouts/layoutBS
                         td= c.TotalSales
                         td
                             form( method='get' action='editItem/' + c.CustomerID )
-                                button(type='submit' class='btn btn-primary') Edit
-                        td
-                            form( method='get' action='deleteItem/' + c.CustomerID )
-                                button(type='submit' class='btn btn-primary') Delete
+                                button(type='submit' class='btn btn-primary') Update
+
     form( method='get' action='/add-product')
         button(type='submit' class='btn btn-primary') Add Record
