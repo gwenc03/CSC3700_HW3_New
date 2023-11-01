@@ -17,7 +17,7 @@ module.exports = class Customer {
     }
     //
     static delete( cid ) {
-        return db.execute( "delete from Customer where cid = ?",
+        return db.execute( "delete from Customer where CustomerID = ?",
             [cid]
         )
     }
@@ -25,15 +25,15 @@ module.exports = class Customer {
         return db.execute( "select * from Customer");
     }
     static findById( cid ){
-        return db.execute( "select * from Customer where cid = ?",
+        return db.execute( "select * from Customer where CustomerID = ?",
             [cid] );
     }
     update ( cid ){
-        return db.execute( "UPDATE products SET name = ?, email= ?  WHERE cid = ?",
+        return db.execute( "UPDATE products SET name = ?, email= ?  WHERE CustomerID = ?",
             [this.CustomerName, this.CustomerEmail, cid ] );
     }
     static runCustomerQuery(){
-        return db.execute("select c.CustomerName, c.CustomerEmail, SUM(i.ItemPrice * s.Quantity) AS TotalSales" +
+        return db.execute("select c.CustomerID, c.CustomerName, c.CustomerEmail, SUM(i.ItemPrice * s.Quantity) AS TotalSales" +
         " FROM Customer c" +
         " LEFT JOIN Sales s ON c.CustomerID = s.CustomerID" +
         " LEFT JOIN Item i ON s.ItemID = i.ItemID" +

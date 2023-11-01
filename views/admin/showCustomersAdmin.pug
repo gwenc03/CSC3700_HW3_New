@@ -24,7 +24,7 @@ include ../layouts/layoutBS
                         td= c.CustomerEmail
                         td= c.TotalSales
                         td
-                            form( method='get' action='editItem/' + c.CustomerID )
+                            form( method='get' action='editCustomer/' + c.CustomerID )
                                 button(type='submit' class='btn btn-primary') Update
 
     form( method='get' action='/add-product')

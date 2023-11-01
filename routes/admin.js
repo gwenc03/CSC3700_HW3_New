@@ -20,6 +20,7 @@ const productsController = require("../controllers/oproducts");
 router.get( '/showCustomers', adminController.getCustomers);
 router.get('/showItems', adminController.getItems);
 router.get('/showSales', adminController.getSales);
+router.get('/editCustomer/:cid', adminController.editCustomer);
 
 // router.post(  '/product', (req, res, next) => {
 //     // console.log( req );

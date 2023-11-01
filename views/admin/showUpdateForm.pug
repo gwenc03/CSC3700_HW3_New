@@ -5,19 +5,16 @@ include ../layouts/layoutBS
         h1 Update id=#{id}
         p
             | Update new Book into our inventory
-        if ( product == null)
+        if ( customer == null)
             h2 Sorry Product is null
     div.mt-2
         form(action='/postUpdateProduct' method='post')
             .form-group
                 input.form-control(type='hidden' name='productId' value= id)
             .form-group
-                label(for='titleId') Title
-                input.form-control(type='text' aria-describedby='emailHelp' id='titleId' name='title' value= product.title)
+                label(for='CustomerName') Customer Name
+                input.form-control(type='text' aria-describedby='emailHelp' id='CustomerName' name='cname' value= customer.CustomerName)
             .form-group
-                label(for='authorId') Author
-                input.form-control(type='text' aria-describedby='emailHelp' id='authorId' name='author' value= product.author)
-            .form-group
-                label(for='priceId') Price
-                input.form-control(type='text' aria-describedby='emailHelp' id='priceId' name='price' value= product.price)
+                label(for='CustomerEmail') Customer Email
+                input.form-control(type='text' aria-describedby='emailHelp' id='CustomerEmail' name='email' value= customer.CustomerEmail)
             button.btn.btn-primary(type='submit') Update This Record

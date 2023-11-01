@@ -21,7 +21,7 @@ body(style='background-color:orange')
                             a.nav-link(href='/showCustomers') Customers
                         li.nav-item
                             a.nav-link(href='/showSales') Sales
-                    else if from == 'addProduct'
+                    else if from == 'showItems'
                         li.nav-item
                             a.nav-link(aria-current='page' href='/showProducts') Show
                         li.nav-item
@@ -30,7 +30,7 @@ body(style='background-color:orange')
                             a.nav-link(href='/showCustomers') Customers
                         li.nav-item
                             a.nav-link(href='/showSales') Sales
-                    else
+                    else if from == 'showCustomers'
                         li.nav-item
                             a.nav-link(aria-current='page' href='/showProducts') Show
                         li.nav-item
@@ -39,5 +39,14 @@ body(style='background-color:orange')
                             a.nav-link.active(href='/showCustomers') Customers
                         li.nav-item
                             a.nav-link(href='/showSales') Sales
+                    else
+                        li.nav-item
+                            a.nav-link(aria-current='page' href='/showProducts') Show
+                        li.nav-item
+                            a.nav-link(href='/showItems') Items
+                        li.nav-item
+                            a.nav-link(href='/showCustomers') Customers
+                        li.nav-item
+                            a.nav-link.active(href='/showSales') Sales
 
 // Page Content

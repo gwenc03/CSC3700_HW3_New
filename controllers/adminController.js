@@ -60,6 +60,46 @@ exports.getSales = (req, res, next) => {
             })
         })
 }
+
+exports.editCustomer = ( req, res, next ) => {
+    let id = req.params.cid;
+    console.log( "Inside Edit .... id=" + id );
+    // fetch all the records and find the idth one
+    Customer.findById(id)
+        .then ((rows, fieldData) =>{
+            console.log("ROWS=>");
+            // console.log( rows[0][0] );
+            // res.send("It must works");
+            console.log(rows[0][0]);
+            res.render( 'admin/ShowUpdateForm', {
+                title : `Update record:${id} `,
+                id : rows[0].id,
+                from: 'updateProducts',
+                customer: rows[0][0]
+            })
+        }).catch( err => {
+        console.log( "DB Error=>");
+        console.log( err );
+    })
+}
+// exports.postUpdateProduct = ( req, res, next ) => {
+//     let id = req.body.productId;
+//     let author = req.body.author;
+//     let title = req.body.title;
+//     let price = req.body.price;
+//     const product = new Product( title, author, price);
+//     product.update(id).then ((rows, fieldData) => {
+//         res.redirect('/showAdmin')
+//     }).catch(err => {
+//         console.log('WTH');
+//         console.log(err);
+//     })
+//     console.log(`-----id:${id}`);
+//     // console.log( `author:${author}`)
+//     // console.log( `title:${title}`)
+//     // console.log( `price:${price}`)
+//     // res.send("Happy day are here again made it to most update product" +id);
+
 // exports.getProducts = ( req, res, next ) => {
 //     Product.fetchAll()
 //         .then(( rows, fieldData ) => {
@@ -87,41 +127,5 @@ exports.getSales = (req, res, next) => {
 //             console.log(err);
 //         })
 // }
-// exports.editProduct = ( req, res, next ) => {
-//     let id = req.params.id;
-//     console.log( "Inside Edit .... id=" +id );
-//     // fetch all the records and find the idth one
-//     Product.findById(id)
-//         .then ((rows, fieldData) =>{
-//             console.log("ROWS=>");
-//             // console.log( rows[0][0] );
-//             // res.send("It must works");
-//             res.render( 'admin/ShowUpdateForm', {
-//                 title : `Update record:${id} `,
-//                 id : rows[0].id,
-//                 from: 'updateProducts',
-//                 product: rows[0][0]
-//             })
-//         }).catch( err => {
-//         console.log( "DB Error=>");
-//         console.log( err );
-//     })
-// }
-// exports.postUpdateProduct = ( req, res, next ) => {
-//     let id = req.body.productId;
-//     let author = req.body.author;
-//     let title = req.body.title;
-//     let price = req.body.price;
-//     const product = new Product( title, author, price);
-//     product.update(id).then ((rows, fieldData) => {
-//         res.redirect('/showAdmin')
-//     }).catch(err => {
-//         console.log('WTH');
-//         console.log(err);
-//     })
-//     console.log(`-----id:${id}`);
-//     // console.log( `author:${author}`)
-//     // console.log( `title:${title}`)
-//     // console.log( `price:${price}`)
-//     // res.send("Happy day are here again made it to most update product" +id);
+
 // }
