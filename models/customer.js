@@ -32,4 +32,18 @@ module.exports = class Customer {
         return db.execute( "UPDATE products SET name = ?, email= ?  WHERE cid = ?",
             [this.CustomerName, this.CustomerEmail, cid ] );
     }
+    static runCustomerQuery(){
+        return db.execute("select c.CustomerName, c.CustomerEmail, SUM(i.ItemPrice * s.Quantity) AS TotalSales" +
+        " FROM Customer c" +
+        " LEFT JOIN Sales s ON c.CustomerID = s.CustomerID" +
+        " LEFT JOIN Item i ON s.ItemID = i.ItemID" +
+        " GROUP BY c.CustomerName" +
+        " order by TotalSales DESC")
+
+        // return db.execute("select i.ItemName, SUM(i.ItemPrice * s.Quantity) AS TotalSales" +
+        //     " FROM Item i" +
+        //     " JOIN Sales s ON s.ItemID = i.ItemID" +
+        //     " GROUP BY i.ItemID" +
+        //     " order by TotalSales DESC")
+    }
 }

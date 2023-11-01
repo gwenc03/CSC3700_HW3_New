@@ -14,11 +14,13 @@ include ../layouts/layoutBS
                 tr
                     th(scope='col') Customer Name
                     th(scope='col') Customer Email
+                    th(scope='col') Total Sales
             tbody
                 each c in customers
                     tr
                         td= c.CustomerName
                         td= c.CustomerEmail
+                        td= c.TotalSales
                         td
                             form( method='get' action='editItem/' + c.CustomerID )
                                 button(type='submit' class='btn btn-primary') Edit
