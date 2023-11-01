@@ -1,0 +1,29 @@
+include ../layouts/layoutBS
+//
+//h2 #{title}
+
+
+.container
+    p.mt-4 Admin Side
+    if items.length == 0
+        h2.mt-4 Sorry no current products
+    else
+        h2.mt-4 #{title}
+        table.table.table-striped
+            thead
+                tr
+                    th(scope='col') Item Name
+                    th(scope='col') Item Price
+            tbody
+                each i in items
+                    tr
+                        td= i.ItemName
+                        td= i.ItemPrice
+                        td
+                            form( method='get' action='editItem/' + i.ItemID )
+                                button(type='submit' class='btn btn-primary') Edit
+                        td
+                            form( method='get' action='deleteItem/' + i.ItemID )
+                                button(type='submit' class='btn btn-primary') Delete
+    form( method='get' action='/add-product')
+        button(type='submit' class='btn btn-primary') Add Record

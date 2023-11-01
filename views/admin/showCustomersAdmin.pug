@@ -1,0 +1,29 @@
+include ../layouts/layoutBS
+//
+//h2 #{title}
+
+
+.container
+    p.mt-4 Admin Side
+    if customers.length == 0
+        h2.mt-4 Sorry no current products
+    else
+        h2.mt-4 #{title}
+        table.table.table-striped
+            thead
+                tr
+                    th(scope='col') Customer Name
+                    th(scope='col') Customer Email
+            tbody
+                each c in customers
+                    tr
+                        td= c.CustomerName
+                        td= c.CustomerEmail
+                        td
+                            form( method='get' action='editItem/' + c.CustomerID )
+                                button(type='submit' class='btn btn-primary') Edit
+                        td
+                            form( method='get' action='deleteItem/' + c.CustomerID )
+                                button(type='submit' class='btn btn-primary') Delete
+    form( method='get' action='/add-product')
+        button(type='submit' class='btn btn-primary') Add Record
