@@ -12,13 +12,27 @@ include ../layouts/layoutBS
         table.table.table-striped
             thead
                 tr
-                    th(scope='col') SaleID
-                    th(scope='col') SalesDate
+                    th(scope='col') Date
+                    th(scope='col') CustomerName
+                    th(scope='col') Product
+                    th(scope='col') Quantity
+                    th(scope='col') Total Sales
+
             tbody
+                //
+                    "SELECT DATE_FORMAT(s.SalesDate, '%Y-%m-%d') AS Date," +
+                                " c.CustomerName," +
+                                " i.ItemName AS Product," +
+                                " s.Quantity AS Quantity," +
+                                " (i.ItemPrice * s.Quantity) AS TotalSales"
+                    //
                 each s in sales
                     tr
-                        td= s.SalesID
-                        td= s.SalesDate
+                        td= s.Date
+                        td= s.CustomerName
+                        td= s.Product
+                        td= s.Quantity
+                        td= s.TotalSales
                         //td
                         //    form( method='get' action='editItem/' + c.CustomerID )
                         //        button(type='submit' class='btn btn-primary') Edit

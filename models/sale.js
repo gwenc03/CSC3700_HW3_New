@@ -34,4 +34,16 @@ module.exports = class Sales {
         return db.execute("select * from Sales where cid = ?",
             [cid]);
     }
+
+    static runSaleQuery() {
+        return db.execute("SELECT DATE_FORMAT(s.SalesDate, '%Y-%m-%d') AS Date," +
+            " c.CustomerName," +
+            " i.ItemName AS Product," +
+            " s.Quantity AS Quantity," +
+            " (i.ItemPrice * s.Quantity) AS TotalSales" +
+            " FROM Sales s JOIN Customer c ON s.CustomerID = c.CustomerID" +
+            " JOIN Item i ON s.ItemID = i.ItemID" +
+            " WHERE MONTH(s.SalesDate) = MONTH(CURDATE()) AND YEAR(s.SalesDate) = YEAR(CURDATE())" +
+            " ORDER BY TotalSales DESC")
+    }
 }

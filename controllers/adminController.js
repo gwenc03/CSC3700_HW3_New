@@ -50,7 +50,7 @@ exports.getItems = (req, res, next) => {
 }
 
 exports.getSales = (req, res, next) => {
-    Sale.fetchAll()
+    Sale.runSaleQuery()
         .then((rows, fieldData ) => {
             console.log("Rows="); console.log(rows);
             res.render("admin/showSalesAdmin", {
