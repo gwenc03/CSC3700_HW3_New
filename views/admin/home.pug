@@ -1,0 +1,16 @@
+include ../layouts/layoutBS
+
+.container.mt-4
+    .row
+        .col-md-4
+            h3 Top Customers
+            form( method='get' action='/showCustomers')
+                button(type='submit' class='btn btn-secondary') Show All
+        .col-md-4
+            h3 Top Products
+            form( method='get' action='/showItems')
+                button(type='submit' class='btn btn-secondary') Show All
+        .col-md-4
+            h3 Sales by Month
+            form( method='get' action='/showSales')
+                button(type='submit' class='btn btn-secondary') Show All

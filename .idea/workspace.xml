@@ -10,6 +10,13 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Pug File" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -26,7 +33,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/Users/ashlynnakashima/Documents/GitHub/CSC3700_HW3_New/models",
+    "last_opened_file_path": "/Users/ashlynnakashima/Documents/GitHub/CSC3700_HW3_New/views/admin",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -37,8 +44,8 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/models" />
       <recent name="$PROJECT_DIR$/views/admin" />
+      <recent name="$PROJECT_DIR$/models" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/public/imgs" />
@@ -55,7 +62,10 @@
       <workItem from="1698723184753" duration="1215000" />
       <workItem from="1698794655160" duration="3998000" />
       <workItem from="1698852268374" duration="149000" />
-      <workItem from="1698857698505" duration="7560000" />
+      <workItem from="1698857698505" duration="8471000" />
+      <workItem from="1698887248450" duration="760000" />
+      <workItem from="1698891120034" duration="783000" />
+      <workItem from="1698949356329" duration="2767000" />
     </task>
     <servers />
   </component>

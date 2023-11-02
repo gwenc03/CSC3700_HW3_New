@@ -11,8 +11,8 @@ const productsController = require("../controllers/oproducts");
 //         })
 // });
 // router.get('/add-product', adminController.getAddProduct);
-// router.post('/product', adminController.postAddProduct);
 // router.get('/showAdmin', adminController.getProducts);
+// router.post('/product', adminController.postAddProduct);
 // router.get('/deleteItem/:id', adminController.deleteProduct);
 // router.get('/editItem/:id', adminController.editProduct);
 // router.post('/postUpdateProduct', adminController.postUpdateProduct);
@@ -21,6 +21,17 @@ router.get( '/showCustomers', adminController.getCustomers);
 router.get('/showItems', adminController.getItems);
 router.get('/showSales', adminController.getSales);
 router.get('/editCustomer/:cid', adminController.editCustomer);
+router.get('/addCustomer', adminController.getAddCustomer);
+router.post('/customer', adminController.postAddCustomer);
+router.get('/addItem', adminController.getAddItem);
+router.post('/item', adminController.postAddItem);
+router.post('/postUpdateCustomer', adminController.postUpdateCustomer);
+router.get('/home', adminController.getHomePage);
+
+
+
+
+
 
 // router.post(  '/product', (req, res, next) => {
 //     // console.log( req );

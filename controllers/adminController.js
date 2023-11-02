@@ -4,17 +4,21 @@ const Customer = require("../models/customer");
 const Item = require("../models/item")
 const Sale = require("../models/sale")
 // let products = [];
-exports.getAddProduct = ( req, res, next) => {
-    res.render( 'admin/addProduct',
+exports.getAddCustomer = ( req, res, next) => {
+    res.render( 'admin/addCustomer',
         {
-            from: 'addProduct'
+            from: 'addCustomer'
         })
 }
-exports.postAddProduct = ( req, res, next) => {
-    let t = req.body.title;
-    let a = req.body.author;
-    let p = req.body.price;
-    res.send(`made it to postAddProduct title:${t}`);
+exports.getAddItem = ( req, res, next) => {
+    res.render( 'admin/addItem',
+        {
+            from: 'addItem'
+        })
+}
+exports.postAddItem = ( req, res, next) => {
+    let name = req.body.name;
+    let price = req.body.price;
     // const product = new Product( t, a, p );
     // product.save();
     // products.push({
@@ -22,9 +26,25 @@ exports.postAddProduct = ( req, res, next) => {
     //     author: a,
     //     price: p
     // })
-    const product = new Product(t, a, p);
-    product.save();
-    res.redirect('/showAdmin')
+    let iid = Item.count() + 1;
+    const item = new Item(iid, name, price);
+    item.save();
+    res.redirect('/showItems');
+}
+exports.postAddCustomer = ( req, res, next) => {
+    let name = req.body.name;
+    let email = req.body.email;
+    // const product = new Product( t, a, p );
+    // product.save();
+    // products.push({
+    //     title: t,
+    //     author: a,
+    //     price: p
+    // })
+    let cid = Customer.count() + 1;
+    const customer = new Customer(cid, name, email);
+    customer.save();
+    res.redirect('/showCustomers');
 }
 exports.getCustomers = (req, res, next) => {
     Customer.runCustomerQuery()
@@ -82,6 +102,30 @@ exports.editCustomer = ( req, res, next ) => {
         console.log( err );
     })
 }
+
+exports.postUpdateCustomer = ( req, res, next ) => {
+    let id = req.body.CustomerID;
+    let name = req.body.CustomerName;
+    let email = req.body.CustomerEmail;
+    const customer = new Customer(id, name, email);
+    customer.update(id).then((rows, fieldData) => {
+        res.redirect('/showCustomers')
+    }).catch(err => {
+        console.log('WTH');
+        console.log(err);
+    })
+    console.log(`-----id:${id}`);
+    console.log(`name:${name}`)
+    console.log(`email:${email}`)
+}
+
+exports.getHomePage = ( req, res, next) => {
+    res.render( 'admin/home',
+        {
+            from: 'home'
+        })
+}
+
 // exports.postUpdateProduct = ( req, res, next ) => {
 //     let id = req.body.productId;
 //     let author = req.body.author;
@@ -126,6 +170,4 @@ exports.editCustomer = ( req, res, next ) => {
 //             console.log("Error on delete");
 //             console.log(err);
 //         })
-// }
-
 // }

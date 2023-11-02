@@ -1,0 +1,16 @@
+include ../layouts/layoutBS
+.container
+    h2.mt-4  Insert New Product
+    form(action='/item' method='post')
+        .form-group
+            label(for='name' id='name') Item Name
+            input#title.form-control(type='text' name='name')
+        .form-group
+            label(for='price' id='price') Price
+            input#author.form-control(type='text' name='price')
+        button.btn.btn-primary(type='submit') Submit
+
+
+    //form(action='/product' method='post')
+    //    input(type='text' name='title')
+    //    button(type='submit') Add Product

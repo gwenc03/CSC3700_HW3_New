@@ -11,7 +11,7 @@ module.exports = class Item {
     }
 
     save() {
-        return db.execute('insert into items (iid, name, price) ' +
+        return db.execute('insert into Item (ItemID, ItemName, ItemPrice) ' +
             'values (?, ?, ?)',
             [this.ItemID, this.ItemName, this.ItemPrice]
         )
@@ -28,6 +28,9 @@ module.exports = class Item {
         return db.execute("select * from Item");
     }
 
+    static count(){
+        return db.execute('select count(*) from Item');
+    }
     static findById(iid) {
         return db.execute("select * from Item where iid = ?",
             [iid]);
@@ -35,7 +38,7 @@ module.exports = class Item {
     static runItemQuery(){
         return db.execute("select i.ItemName, SUM(i.ItemPrice * s.Quantity) AS TotalSales" +
             " FROM Item i" +
-            " JOIN Sales s ON s.ItemID = i.ItemID" +
+            " Left JOIN Sales s ON s.ItemID = i.ItemID" +
             " GROUP BY i.ItemID" +
             " order by TotalSales DESC")
     }

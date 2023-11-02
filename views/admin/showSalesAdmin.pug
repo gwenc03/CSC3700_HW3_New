@@ -4,19 +4,18 @@ include ../layouts/layoutBS
 
 
 .container
-    p.mt-4 Admin Side
+    p.mt-4
     if sales.length == 0
         h2.mt-4 Sorry no current products
     else
-        h2.mt-4 #{title}
-        table.table.table-striped.table-info
+        table.table.table-striped.table-info.table-bordered.border-white
             thead
                 tr
-                    th(scope='col' style='background-color:dodgerblue') Date
-                    th(scope='col' style='background-color:dodgerblue') CustomerName
-                    th(scope='col' style='background-color:dodgerblue') Product
-                    th(scope='col' style='background-color:dodgerblue') Quantity
-                    th(scope='col' style='background-color:dodgerblue') Total Sales
+                    th.text-white(scope='col' style='background-color:dodgerblue') Date
+                    th.text-white(scope='col' style='background-color:dodgerblue') CustomerName
+                    th.text-white(scope='col' style='background-color:dodgerblue') Product
+                    th.text-white(scope='col' style='background-color:dodgerblue') Quantity
+                    th.text-white(scope='col' style='background-color:dodgerblue') Total Sales
 
             tbody
                 //
@@ -32,12 +31,10 @@ include ../layouts/layoutBS
                         td= s.CustomerName
                         td= s.Product
                         td= s.Quantity
-                        td= s.TotalSales
+                        td= "$" + s.TotalSales
                         //td
                         //    form( method='get' action='editItem/' + c.CustomerID )
                         //        button(type='submit' class='btn btn-primary') Edit
                         //td
                         //    form( method='get' action='deleteItem/' + c.CustomerID )
                         //        button(type='submit' class='btn btn-primary') Delete
-    form( method='get' action='/add-product')
-        button(type='submit' class='btn btn-primary') Add Record

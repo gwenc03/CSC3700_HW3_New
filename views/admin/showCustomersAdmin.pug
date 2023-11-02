@@ -4,28 +4,32 @@ include ../layouts/layoutBS
 
 
 .container
-    p.mt-4 Admin Side
+    h1.mt-4
     if customers.length == 0
         h2.mt-4 Sorry no current products
     else
-        h2.mt-4 #{title}
-        table.table.table-striped.table-info
+        table.table.table-striped.table-info.table-bordered.border-white
             thead
                 tr
-                    th(scope='col' style='background-color:dodgerblue') Customer Name
-                    th(scope='col' style='background-color:dodgerblue') Customer Email
-                    th(scope='col' style='background-color:dodgerblue') Total Sales
-                    th(scope='col' style='background-color:dodgerblue')
+                    th.text-white(scope='col' style='background-color:dodgerblue') Customer Name
+                    th.text-white(scope='col' style='background-color:dodgerblue') Customer Email
+                    th.text-white(scope='col' style='background-color:dodgerblue') Total Sales
+                    th.text-white(scope='col' style='background-color:dodgerblue')
 
             tbody
                 each c in customers
                     tr
                         td= c.CustomerName
                         td= c.CustomerEmail
-                        td= c.TotalSales
+                        if c.TotalSales != null
+                            td= "$" + c.TotalSales
+                        else
+                            td $0.00
                         td
                             form( method='get' action='editCustomer/' + c.CustomerID )
-                                button(type='submit' class='btn btn-primary') Update
+                                button(type='submit' class='btn btn-secondary') Update
 
-    form( method='get' action='/add-product')
-        button(type='submit' class='btn btn-primary') Add Record
+    //form( method='get' action='/add=product')
+    //    button(type='submit' class='btn btn-primary') Add Record
+    form( method='get' action='/addCustomer')
+        button(type='submit' class='btn btn-secondary') Insert New Customer

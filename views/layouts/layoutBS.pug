@@ -1,5 +1,5 @@
 head
-    title  My App
+    title  Happy Harry's Hardware
     link(href='/css/bootstrap.css' rel='stylesheet')
     script(src='/js/bootstrap.js' type='application/javascript')
 // Navigation
@@ -7,46 +7,46 @@ body(style='background-color:orange')
     nav.navbar.navbar-expand-lg.navbar-dark.static-top(style='background-color:dodgerblue')
         .container
             a.navbar-brand(href='#')
-                img(src='imgs/dilbert.png' alt='My Logo' height='50')
+                img(src='imgs/happyharry.png' alt='My Logo' height='50')
             button.navbar-toggler(type='button' data-bs-toggle='collapse' data-bs-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation')
                 span.navbar-toggler-icon
             #navbarSupportedContent.collapse.navbar-collapse
                 ul.navbar-nav.ms-auto
-                    if from == 'showProducts'
-                        li.nav-item
-                            a.nav-link.active(aria-current='page' href='/showProducts') Show
-                        li.nav-item
-                            a.nav-link(href='/showItems') Items
-                        li.nav-item
+                    if from == 'home'
+                        li.nav-item.m-1(style='background-color:lightsalmon')
+                            a.nav-link.active(aria-current='page' href='/home') Home
+                        li.nav-item.m-1(style='background-color:lightsalmon')
                             a.nav-link(href='/showCustomers') Customers
-                        li.nav-item
+                        li.nav-item.m-1(style='background-color:lightsalmon')
+                            a.nav-link(href='/showItems') Products
+                        li.nav-item.m-1(style='background-color:lightsalmon')
                             a.nav-link(href='/showSales') Sales
                     else if from == 'showItems'
-                        li.nav-item
-                            a.nav-link(aria-current='page' href='/showProducts') Show
-                        li.nav-item
-                            a.nav-link.active(href='/showItems') Items
-                        li.nav-item
+                        li.nav-item.m-1(style='background-color:lightsalmon')
+                            a.nav-link(aria-current='page' href='/home') Home
+                        li.nav-item.m-1(style='background-color:lightsalmon')
                             a.nav-link(href='/showCustomers') Customers
-                        li.nav-item
+                        li.nav-item.m-1(style='background-color:lightsalmon')
+                            a.nav-link.active(href='/showItems') Products
+                        li.nav-item.m-1(style='background-color:lightsalmon')
                             a.nav-link(href='/showSales') Sales
                     else if from == 'showCustomers'
-                        li.nav-item
-                            a.nav-link(aria-current='page' href='/showProducts') Show
-                        li.nav-item
-                            a.nav-link(href='/showItems') Items
-                        li.nav-item
+                        li.nav-item.m-1(style='background-color:lightsalmon')
+                            a.nav-link(aria-current='page' href='/home') Home
+                        li.nav-item.m-1(style='background-color:lightsalmon')
                             a.nav-link.active(href='/showCustomers') Customers
-                        li.nav-item
+                        li.nav-item.m-1(style='background-color:lightsalmon')
+                            a.nav-link(href='/showItems') Products
+                        li.nav-item.m-1(style='background-color:lightsalmon')
                             a.nav-link(href='/showSales') Sales
                     else
-                        li.nav-item
-                            a.nav-link(aria-current='page' href='/showProducts') Show
-                        li.nav-item
-                            a.nav-link(href='/showItems') Items
-                        li.nav-item
+                        li.nav-item.m-1(style='background-color:lightsalmon')
+                            a.nav-link(aria-current='page' href='/home') Home
+                        li.nav-item.m-1(style='background-color:lightsalmon')
                             a.nav-link(href='/showCustomers') Customers
-                        li.nav-item
+                        li.nav-item.m-1(style='background-color:lightsalmon')
+                            a.nav-link(href='/showItems') Products
+                        li.nav-item.m-1(style='background-color:lightsalmon')
                             a.nav-link.active(href='/showSales') Sales
 
 // Page Content
