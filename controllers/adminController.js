@@ -120,10 +120,45 @@ exports.postUpdateCustomer = ( req, res, next ) => {
 }
 
 exports.getHomePage = ( req, res, next) => {
-    res.render( 'admin/home',
-        {
-            from: 'home'
+    let topCustomers = [];
+    let topItems = [];
+    let topSales = [];
+    Customer.runTop5CustomerQuery().then((data, fieldData) => {
+        topCustomers = data[0];
+        // console.log( data);
+
+        // res.render("admin/home", {
+        //     from: "home",
+        //     customer: data[0]
+        // })
+        console.log("top customers= " + topCustomers)
+        console.log(topCustomers)
+
+    })
+    Item.runTop5ItemQuery().then((data, fieldData) => {
+        topItems = data[0];
+        // res.render("admin/home", {
+        //     from: "home",
+        //     customer:data[0],
+        //     item: data[0]
+        // })
+        console.log("top items= " + topItems)
+        console.log(topItems)
+    })
+    Sale.runTopSalesQuery().then((data, fieldData) => {
+        topSales = data[0];
+        res.render("admin/home", {
+            from: "home",
+            customer:data[0],
+            item: data[0],
+            sale: topSales
         })
+        console.log("top Sales ---= " + topSales)
+        console.log(topSales)
+    })
+
+
+
 }
 
 // exports.postUpdateProduct = ( req, res, next ) => {

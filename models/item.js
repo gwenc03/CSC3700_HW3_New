@@ -42,4 +42,12 @@ module.exports = class Item {
             " GROUP BY i.ItemID" +
             " order by TotalSales DESC")
     }
+    static runTop5ItemQuery(){
+        return db.execute("select i.ItemName, SUM(i.ItemPrice * s.Quantity) AS TotalSales" +
+            " FROM Item i" +
+            " Left JOIN Sales s ON s.ItemID = i.ItemID" +
+            " GROUP BY i.ItemID" +
+            " order by TotalSales DESC" +
+            " Limit 5")
+    }
 }

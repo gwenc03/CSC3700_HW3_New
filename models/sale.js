@@ -46,4 +46,15 @@ module.exports = class Sales {
             " WHERE MONTH(s.SalesDate) = MONTH(CURDATE()) AND YEAR(s.SalesDate) = YEAR(CURDATE())" +
             " ORDER BY TotalSales DESC")
     }
+    static runTopSalesQuery() {
+        return db.execute("SELECT" +
+            " DATE_FORMAT(SalesDate, '%Y-%m') AS Month," +
+            " SUM(Quantity * ItemPrice) AS TotalSales" +
+            " FROM Sales" +
+            " JOIN Item ON Sales.ItemID = Item.ItemID" +
+            " WHERE SalesDate >= DATE_FORMAT(NOW(), '%Y-%m-01') - INTERVAL 5 MONTH" +
+            " GROUP BY DATE_FORMAT(SalesDate, '%Y-%m')" +
+            " ORDER BY TotalSales DESC" +
+            " limit 5;")
+    }
 }
