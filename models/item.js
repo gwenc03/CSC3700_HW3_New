@@ -1,5 +1,3 @@
-
-
 const db = require("../util/database");
 
 module.exports = class Item {
@@ -7,7 +5,6 @@ module.exports = class Item {
         this.ItemID = iid;
         this.ItemName = name;
         this.ItemPrice = price;
-        // this.description = "It was good it was bad it was ugly";
     }
 
     save() {

@@ -1,19 +1,15 @@
+// Ashlyn Nakashima and Gwen Canos
+// CSC 3700
+// Homework 3
+
 const express = require("express");
 const app = express();
 app.set( 'view engine', 'pug'); // set engine
 app.set( 'views', 'views'); // set views
-//handle to the db
-const db = require("./util/database");
-// db.execute("select * from products")
-//     .then( result => {
-//         console.log("results=");
-//         console.log(result);
-//     })
-//     .catch( err => {
-//         console.log( "DB ERR:"); console.log( err );
-//     })
+
+const dp = require('./util/database');
+
 const adminRoutes = require("./routes/admin");
-const shopRoutes = require("./routes/shop");
 
 const bodyParser = require("body-parser");
 const path = require("path");
@@ -22,22 +18,13 @@ const http = require("http");
 app.use( bodyParser.urlencoded({extended: false})); // middleware for body
 app.use( express.static( path.join(__dirname, 'public')));
 app.use( adminRoutes.routes);
-app.use( shopRoutes);
 
-// app.use( ( req, res, next ) => {
 app.get('*', function(req, res){
-    // res.status(404).send("<h2> Request not found </h2>")
-    //;
-    let pt = "Sorry, Jack ... Page Not Found"
-    let gotMilk = false;
-    let age = 15;
-    let myProds = [ "Pizza", "Pears", "Pumpkin", "Plumbs"]
+    let pt = "Welcome to Happy Harry's Hardware"
+
     res.render( 'notFound', {
         title:pt,
-        subTitle: "Try again",
-        gotMilk: gotMilk,
-        age: age,
-        pList : myProds
+        subTitle: "Let's shop for products",
     });
 })
 

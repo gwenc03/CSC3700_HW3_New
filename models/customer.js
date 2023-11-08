@@ -44,7 +44,6 @@ module.exports = class Customer {
             " GROUP BY c.CustomerName" +
             " order by TotalSales DESC")
     }
-
     static runTop5CustomerQuery(){
         return db.execute("select c.CustomerID, c.CustomerName, c.CustomerEmail, SUM(i.ItemPrice * s.Quantity) AS TotalSales" +
             " FROM Customer c" +
@@ -54,4 +53,5 @@ module.exports = class Customer {
             " order by TotalSales DESC" +
             " Limit 5 ")
     }
+
 }

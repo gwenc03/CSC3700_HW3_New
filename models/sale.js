@@ -1,5 +1,3 @@
-
-
 const db = require("../util/database");
 
 module.exports = class Sales {
@@ -9,7 +7,6 @@ module.exports = class Sales {
         this.ItemID = iid;
         this.Quantity = quantity;
         this.SalesDate = salesdate;
-        // this.description = "It was good it was bad it was ugly";
     }
 
     save() {
@@ -19,7 +16,6 @@ module.exports = class Sales {
         )
     }
 
-    //
     static delete(cid) {
         return db.execute("delete from Sales where cid = ?",
             [cid]

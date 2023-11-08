@@ -1,16 +1,4 @@
 include layouts/layoutBS
-h1 #{title}
-p #{subTitle}
-if gotMilk
-    p Hey nice you got milk
-else
-    p No milk for you
-if age <= 16
-    p
-        span(style='color: red')  No Drive
-else
-    p  You you can drive
-h2 And Now the list
-ol
-    each p in pList
-        li= p
+.container
+    h1.mt-4 #{title}
+    p #{subTitle}

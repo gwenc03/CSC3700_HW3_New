@@ -4,13 +4,47 @@ include ../layouts/layoutBS
     .row
         .col-md-4
             h3 Top Customers
+            table.table.table-borderless
+                thead
+                tbody
+                - let ct1 = 0
+                each c in customer
+                    - ct1++
+                    tr
+                        td(style='background-color:orange')= ct1 + "."
+                        td(style='background-color:orange')= c.CustomerName + "  -  $" + c.TotalSales
             form( method='get' action='/showCustomers')
                 button(type='submit' class='btn btn-secondary') Show All
         .col-md-4
             h3 Top Products
+            table.table.table-borderless
+                thead
+                tbody
+                - let ct2 = 0
+                each i in item
+                    - ct2++
+                    tr
+                        td(style='background-color:orange')= ct2 + "."
+                        td(style='background-color:orange')= i.ItemName + "  -  $" + i.TotalSales
             form( method='get' action='/showItems')
                 button(type='submit' class='btn btn-secondary') Show All
         .col-md-4
             h3 Sales by Month
+            table.table.table-borderless
+                thead
+                tbody
+                - let ct3 = 0
+                each s in sale
+                    - ct3++
+                    - var dateStr = s.Month
+                    - var parts = dateStr.split('-')
+                    - var year = parts[0]
+                    - var month = parseInt(parts[1]);
+                    - var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+                    - var monthName = months[month - 1];
+                    tr
+                        td(style='background-color:orange')= ct3 + "."
+                        td(style='background-color:orange')= monthName + " " + year + "  -  $" + s.TotalSales
+
             form( method='get' action='/showSales')
                 button(type='submit' class='btn btn-secondary') Show All
